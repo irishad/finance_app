@@ -17,7 +17,7 @@ class FamilyMembersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create family_member" do
     assert_difference("FamilyMember.count") do
-      post family_members_url, params: { family_member: { name: @family_member.name, wallet_id: @family_member.wallet_id } }
+      post family_members_url, params: { family_member: { name: @family_member.name } }
     end
 
     assert_redirected_to family_member_url(FamilyMember.last)
@@ -34,7 +34,7 @@ class FamilyMembersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update family_member" do
-    patch family_member_url(@family_member), params: { family_member: { name: @family_member.name, wallet_id: @family_member.wallet_id } }
+    patch family_member_url(@family_member), params: { family_member: { name: @family_member.name } }
     assert_redirected_to family_member_url(@family_member)
   end
 

@@ -15,7 +15,6 @@ class FamilyMembersTest < ApplicationSystemTestCase
     click_on "New family member"
 
     fill_in "Name", with: @family_member.name
-    fill_in "Wallet", with: @family_member.wallet_id
     click_on "Create Family member"
 
     assert_text "Family member was successfully created"
@@ -27,7 +26,6 @@ class FamilyMembersTest < ApplicationSystemTestCase
     click_on "Edit this family member", match: :first
 
     fill_in "Name", with: @family_member.name
-    fill_in "Wallet", with: @family_member.wallet_id
     click_on "Update Family member"
 
     assert_text "Family member was successfully updated"

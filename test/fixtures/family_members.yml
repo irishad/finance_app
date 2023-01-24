@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  wallet: one
 
 two:
   name: MyString
-  wallet: two

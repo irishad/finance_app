@@ -1,3 +1,3 @@
 class FamilyMember < ApplicationRecord
-  has_many :wallets
+    has_many :wallets
 end

@@ -65,6 +65,6 @@ class FamilyMembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def family_member_params
-      params.require(:family_member).permit(:name, :wallet_id)
+      params.require(:family_member).permit(:name)
     end
 end
