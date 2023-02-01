@@ -19,6 +19,7 @@ class OperationsTest < ApplicationSystemTestCase
     fill_in "Description", with: @operation.description
     fill_in "Family member", with: @operation.family_member_id
     fill_in "Odate", with: @operation.odate
+    fill_in "Wallet", with: @operation.wallet_id
     click_on "Create Operation"
 
     assert_text "Operation was successfully created"
@@ -34,6 +35,7 @@ class OperationsTest < ApplicationSystemTestCase
     fill_in "Description", with: @operation.description
     fill_in "Family member", with: @operation.family_member_id
     fill_in "Odate", with: @operation.odate
+    fill_in "Wallet", with: @operation.wallet_id
     click_on "Update Operation"
 
     assert_text "Operation was successfully updated"

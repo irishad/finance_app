@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_204930) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_01_203319) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -30,10 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_204930) do
     t.string "description"
     t.integer "category_id", null: false
     t.integer "family_member_id", null: false
+    t.integer "wallet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "otype"
     t.index ["category_id"], name: "index_operations_on_category_id"
     t.index ["family_member_id"], name: "index_operations_on_family_member_id"
+    t.index ["wallet_id"], name: "index_operations_on_wallet_id"
   end
 
   create_table "wallets", force: :cascade do |t|
@@ -46,5 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_204930) do
 
   add_foreign_key "operations", "categories"
   add_foreign_key "operations", "family_members"
+  add_foreign_key "operations", "wallets"
   add_foreign_key "wallets", "family_members"
 end
