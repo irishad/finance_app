@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  family_member: one
 
 two:
   name: MyString
-  family_member: two

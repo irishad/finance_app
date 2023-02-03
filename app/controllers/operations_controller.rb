@@ -65,6 +65,6 @@ class OperationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def operation_params
-      params.require(:operation).permit(:amount, :odate, :description, :category_id, :family_member_id, :wallet_id, :otype)
+      params.require(:operation).permit(:amount, :odate, :description, :otype, :category_id, :wallet_id)
     end
 end

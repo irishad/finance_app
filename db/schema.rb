@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_01_203319) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_03_195056) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -18,37 +18,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_203319) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "family_members", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "operations", force: :cascade do |t|
-    t.decimal "amount", precision: 8, scale: 2
-    t.datetime "odate"
+    t.decimal "amount"
+    t.date "odate"
     t.string "description"
+    t.integer "otype"
     t.integer "category_id", null: false
-    t.integer "family_member_id", null: false
     t.integer "wallet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "otype"
     t.index ["category_id"], name: "index_operations_on_category_id"
-    t.index ["family_member_id"], name: "index_operations_on_family_member_id"
     t.index ["wallet_id"], name: "index_operations_on_wallet_id"
   end
 
   create_table "wallets", force: :cascade do |t|
     t.string "name"
-    t.integer "family_member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["family_member_id"], name: "index_wallets_on_family_member_id"
   end
 
   add_foreign_key "operations", "categories"
-  add_foreign_key "operations", "family_members"
   add_foreign_key "operations", "wallets"
-  add_foreign_key "wallets", "family_members"
 end

@@ -2,16 +2,16 @@
 
 one:
   amount: 9.99
-  odate: 2023-02-01 22:15:14
+  odate: 2023-02-03 21:00:17
   description: MyString
+  otype: MyString
   category: one
-  family_member: one
   wallet: one
 
 two:
   amount: 9.99
-  odate: 2023-02-01 22:15:14
+  odate: 2023-02-03 21:00:17
   description: MyString
+  otype: MyString
   category: two
-  family_member: two
   wallet: two

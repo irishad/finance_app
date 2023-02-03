@@ -17,7 +17,7 @@ class WalletsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create wallet" do
     assert_difference("Wallet.count") do
-      post wallets_url, params: { wallet: { family_member_id: @wallet.family_member_id, name: @wallet.name } }
+      post wallets_url, params: { wallet: { name: @wallet.name } }
     end
 
     assert_redirected_to wallet_url(Wallet.last)
@@ -34,7 +34,7 @@ class WalletsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update wallet" do
-    patch wallet_url(@wallet), params: { wallet: { family_member_id: @wallet.family_member_id, name: @wallet.name } }
+    patch wallet_url(@wallet), params: { wallet: { name: @wallet.name } }
     assert_redirected_to wallet_url(@wallet)
   end
 

@@ -17,8 +17,8 @@ class OperationsTest < ApplicationSystemTestCase
     fill_in "Amount", with: @operation.amount
     fill_in "Category", with: @operation.category_id
     fill_in "Description", with: @operation.description
-    fill_in "Family member", with: @operation.family_member_id
     fill_in "Odate", with: @operation.odate
+    fill_in "Otype", with: @operation.otype
     fill_in "Wallet", with: @operation.wallet_id
     click_on "Create Operation"
 
@@ -33,8 +33,8 @@ class OperationsTest < ApplicationSystemTestCase
     fill_in "Amount", with: @operation.amount
     fill_in "Category", with: @operation.category_id
     fill_in "Description", with: @operation.description
-    fill_in "Family member", with: @operation.family_member_id
     fill_in "Odate", with: @operation.odate
+    fill_in "Otype", with: @operation.otype
     fill_in "Wallet", with: @operation.wallet_id
     click_on "Update Operation"
 

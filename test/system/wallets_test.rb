@@ -14,7 +14,6 @@ class WalletsTest < ApplicationSystemTestCase
     visit wallets_url
     click_on "New wallet"
 
-    fill_in "Family member", with: @wallet.family_member_id
     fill_in "Name", with: @wallet.name
     click_on "Create Wallet"
 
@@ -26,7 +25,6 @@ class WalletsTest < ApplicationSystemTestCase
     visit wallet_url(@wallet)
     click_on "Edit this wallet", match: :first
 
-    fill_in "Family member", with: @wallet.family_member_id
     fill_in "Name", with: @wallet.name
     click_on "Update Wallet"
 

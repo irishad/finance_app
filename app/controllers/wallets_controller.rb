@@ -65,6 +65,6 @@ class WalletsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wallet_params
-      params.require(:wallet).permit(:name, :family_member_id)
+      params.require(:wallet).permit(:name)
     end
 end
