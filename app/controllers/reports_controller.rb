@@ -1,7 +1,4 @@
 class ReportsController < ApplicationController
-  def index
-  end
-
   def report_by_category
   end
 
@@ -9,5 +6,15 @@ class ReportsController < ApplicationController
   end
 
   def report_by_wallets
+  end
+
+  def result_by_category
+    @operations = Operation.all
+  end
+
+  def result_by_dates
+  end
+
+  def result_by_wallets
   end
 end

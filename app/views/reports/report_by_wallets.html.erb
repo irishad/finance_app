@@ -1,2 +1,19 @@
-<h1>Reports#report_by_wallets</h1>
-<p>Find me in app/views/reports/report_by_wallets.html.erb</p>
+<h1>Звіт по гаманцям</h1>
+<form action="/reports/result_by_wallets" metod="GET" id="report_by_wallets">
+    <label for="start_date">Дата YYYY-MM-DD</label>
+    <input type="date" id="start_day" name="start_day" required><br>
+    <label for="end_date">Дата YYYY-MM-DD</label>
+    <input type="date" id="end_day" name="end_day" required><br>
+    <label for="otype">Тип операції</label>
+    <select id="otype" name="otype">
+        <option value="">Вибери тип операції</option>
+        <option value="expense">Витрата</option>
+        <option value="income">Дохід</option>
+    </select><br>
+    <label for="category">Категорія</label>
+    <select id="category" name="category">
+        <option value="">Вибери Категорію</option>
+    </select><br>
+    <input type="submit" value="Згенерувати">
+    <input type="reset" value="Очистити">
+</form>

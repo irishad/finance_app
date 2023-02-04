@@ -1,2 +1,23 @@
-<h1>Reports#report_by_dates</h1>
-<p>Find me in app/views/reports/report_by_dates.html.erb</p>
+<h1>Звіт по датам</h1>
+<form action="/reports/result_by_dates" metod="GET" id="report_by_dates">
+    <label for="start_date">Дата YYYY-MM-DD</label>
+    <input type="date" id="start_day" name="start_day" required><br>
+    <label for="end_date">Дата YYYY-MM-DD</label>
+    <input type="date" id="end_day" name="end_day" required><br>
+    <label for="otype">Тип операції</label>
+    <select id="otype" name="otype">
+        <option value="">Вибери тип операції</option>
+        <option value="expense">Витрата</option>
+        <option value="income">Дохід</option>
+    </select><br>
+    <label for="category">Категорія</label>
+    <select id="category" name="category">
+        <option value="">Вибери Категорію</option>
+    </select><br>
+    <label for="wallet">Гаманець</label>
+    <select id="wallet" name="wallet">
+        <option value="">Вибери гаманець</option>
+    </select><br>
+    <input type="submit" value="Згенерувати">
+    <input type="reset" value="Очистити">
+</form>
