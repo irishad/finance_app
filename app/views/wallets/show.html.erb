@@ -3,8 +3,8 @@
 <%= render @wallet %>
 
 <div>
-  <%= link_to "Edit this wallet", edit_wallet_path(@wallet) %> |
-  <%= link_to "Back to wallets", wallets_path %>
+  <%= link_to "Edit this wallet", edit_wallet_path(@wallet), class: "btn btn-success" %> |
+  <%= link_to "Back to wallets", wallets_path, class: "btn btn-success" %>
 
-  <%= button_to "Destroy this wallet", @wallet, method: :delete %>
+  <%= button_to "Destroy this wallet", @wallet, method: :delete, class: "btn btn-success" %>
 </div>

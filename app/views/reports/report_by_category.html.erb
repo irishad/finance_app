@@ -17,3 +17,20 @@
     <input type="submit" value="Згенерувати">
     <input type="reset" value="Очистити">
 </form>
+
+<%= form_tag :action => 'result_by_category' do %>
+<label for="start_date">Дата YYYY-MM-DD</label>
+<input type="date" id="start_day" name="start_day" required><br>
+<label for="end_date">Дата YYYY-MM-DD</label>
+<input type="date" id="end_day" name="end_day" required><br>
+<label for="otype">Тип операції</label>
+    <select id="otype" name="otype">
+        <option value="">Вибери тип операції</option>
+        <option value="expense">Витрата</option>
+        <option value="income">Дохід</option>
+    </select><br>
+<label for="wallet">Гаманець</label>
+<%= collection_select(:wallets, :wallet_id, @wallets, :name, promt: true) %>
+<%= submit_tag 'Згенерувати' %>
+<%= submit_tag("Start Over", { :name => 'reset', :id => 'reset_button', :type => "reset" }) %>
+<% end %>

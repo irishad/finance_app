@@ -6,9 +6,9 @@
   <% @wallets.each do |wallet| %>
     <%= render wallet %>
     <p>
-      <%= link_to "Show this wallet", wallet %>
+      <%= link_to "Show this wallet", wallet, class: "btn btn-success" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New wallet", new_wallet_path %>
+<%= link_to "New wallet", new_wallet_path, class: "btn btn-success" %>

@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3 mt-3">
+    <div class="d-inline-flex align-items-center">
+      <%= form.label :name, style: "display: block", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <div class="d-inline-flex align-items-center">
+      <%= form.label :description, style: "display: block", class: "form-label" %>
+      <%= form.text_field :description, class: "form-control" %>
+    </div>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>
