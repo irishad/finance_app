@@ -1,14 +1,46 @@
-<p style="color: green"><%= notice %></p>
+<div class="container pt-5">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+  <h1>Категорії</h1>
 
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category, class: "btn btn-success" %>
-    </p>
-  <% end %>
+
+
+  <table id="categories" class="table table-dark table-striped table-bordered">
+    <tr>
+      <th style="width: 10%">#</th>
+      <th style="width: 25%">Назва</th>
+      <th style="width: 50%">Опис</th>
+      <th style="width: 15%">Управління</th>
+    </tr>
+    <tr>
+      <% n = 1 %>
+      <% @categories.each do |category| %>
+      <td><%= n %></td>
+      <td><%= category.name %></td>
+      <td><%= category.description %></td>
+      <td>
+        <%= link_to edit_category_path(category) do %>
+        <i class="bi bi-pencil-square text-my-green"></i>
+        <% end %>
+        <%= button_to category, method: :delete, class: " btn btn-primary-outline" do %>
+        <i class="bi bi-x-square"></i>
+        <% end %>
+      </td>
+      <%
+=begin%>
+ <%= render category %> 
+<%
+=end%>
+      <%
+=begin%>
+ <p>
+        <%= link_to "Show this category", category, class: "btn btn-success" %>
+      </p> 
+<%
+=end%>
+    <% n+=1 %>
+    <% end %>
+  </table>
+
+  <%= link_to "New category", new_category_path, class: "btn btn-success" %>
 </div>
-
-<%= link_to "New category", new_category_path, class: "btn btn-success" %>

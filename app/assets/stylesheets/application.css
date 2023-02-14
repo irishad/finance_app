@@ -45,3 +45,8 @@ footer {
 .btn-success {
     background-color: #0BCE5A;
 }
+
+.btn-primary-outline {
+    background-color: transparent;
+    border-color: #ccc;
+  }
