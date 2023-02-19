@@ -1,14 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class="container pt-5">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Wallets</h1>
+  <h1>Гаманці</h1>
 
-<div id="wallets">
-  <% @wallets.each do |wallet| %>
-    <%= render wallet %>
-    <p>
-      <%= link_to "Show this wallet", wallet, class: "btn btn-success" %>
-    </p>
-  <% end %>
+  <table id="wallet" class="table table-dark table-striped table-bordered">
+    <tr>
+      <th style="width: 5%">#</th>
+      <th style="width: 85%">Назва</th>
+      <th style="width: 10%">Управління</th>
+    </tr>
+    <% n = 1 %>
+    <% @wallets.each do |wallet| %>
+    <tr>
+      <td><%= n %></td>
+      <td><%= wallet.name %></td>
+      <td>
+        <div class="btn-toolbar">
+          <%= link_to edit_wallet_path(wallet), class: "btn" do %>
+          <i class="bi bi-pencil-square text-my-green"></i>
+          <% end %>
+          <%= button_to wallet, method: :delete, class: "btn btn-link" do %>
+          <i class="bi bi-x-square text-my-green"></i>
+          <% end %>
+        </div>
+      </td>
+        <% n+=1 %>
+    </tr>
+    <% end %>
+  </table>
+
+  <%= link_to "Новий гаманець", new_wallet_path, class: "btn btn-success" %>
 </div>
-
-<%= link_to "New wallet", new_wallet_path, class: "btn btn-success" %>

@@ -1,14 +1,52 @@
-<p style="color: green"><%= notice %></p>
+<div class="container pt-5">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Operations</h1>
+  <h1>Операції</h1>
 
-<div id="operations">
-  <% @operations.each do |operation| %>
-    <%= render operation %>
+  <table id="operations" class="table table-dark table-striped table-bordered">
+    <tr>
+      <th style="width: 5%">#</th>
+      <th style="width: 10%">Тип операції</th>
+      <th style="width: 10%">Гаманець</th>
+      <th style="width: 15%">Категорія</th>
+      <th style="width: 10%">Сума</th>
+      <th style="width: 30%">Опис</th>
+      <th style="width: 10%">Дата</th>
+      <th style="width: 10%">Управління</th>
+    </tr>
+    <% n = 1 %>
+    <% @operations.each do |operation| %>
+    <tr>
+      <td><%= n %></td>
+      <td><%= operation.otype %></td>
+      <td><%= operation.wallet.name %></td>
+      <td><%= operation.category.name %></td>
+      <td><%= operation.amount %></td>
+      <td><%= operation.description %></td>
+      <td><%= operation.odate %></td>
+      <td>
+        <div class="btn-toolbar">
+          <%= link_to edit_operation_path(operation), class: "btn" do %>
+          <i class="bi bi-pencil-square text-my-green"></i>
+          <% end %>
+          <%= button_to operation, method: :delete, class: "btn btn-link" do %>
+          <i class="bi bi-x-square text-my-green"></i>
+          <% end %>
+        </div>
+      </td>
+    <%
+=begin%>
+ <%= render operation %>
     <p>
       <%= link_to "Show this operation", operation, class: "btn btn-success" %>
-    </p>
+    </p> 
+<%
+=end%>
+    <% n+=1 %>
   <% end %>
-</div>
+  </tr>
+  </table>
 
 <%= link_to "New operation", new_operation_path, class: "btn btn-success" %>
+
+</div>

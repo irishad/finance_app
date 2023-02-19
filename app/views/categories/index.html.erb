@@ -7,24 +7,26 @@
 
   <table id="categories" class="table table-dark table-striped table-bordered">
     <tr>
-      <th style="width: 10%">#</th>
-      <th style="width: 25%">Назва</th>
-      <th style="width: 50%">Опис</th>
-      <th style="width: 15%">Управління</th>
+      <th style="width: 5%">#</th>
+      <th style="width: 30%">Назва</th>
+      <th style="width: 55%">Опис</th>
+      <th style="width: 10%">Управління</th>
     </tr>
-    <tr>
-      <% n = 1 %>
+    <% n = 1 %>
       <% @categories.each do |category| %>
+    <tr>
       <td><%= n %></td>
       <td><%= category.name %></td>
       <td><%= category.description %></td>
       <td>
-        <%= link_to edit_category_path(category) do %>
-        <i class="bi bi-pencil-square text-my-green"></i>
-        <% end %>
-        <%= button_to category, method: :delete, class: " btn btn-primary-outline" do %>
-        <i class="bi bi-x-square"></i>
-        <% end %>
+        <div class="btn-toolbar">
+          <%= link_to edit_category_path(category), class: "btn" do %>
+          <i class="bi bi-pencil-square text-my-green"></i>
+          <% end %>
+          <%= button_to category, method: :delete, class: "btn btn-link" do %>
+          <i class="bi bi-x-square text-my-green"></i>
+          <% end %>
+        </div>
       </td>
       <%
 =begin%>
@@ -38,8 +40,9 @@
       </p> 
 <%
 =end%>
-    <% n+=1 %>
+      <% n+=1 %>
     <% end %>
+    </tr>
   </table>
 
   <%= link_to "New category", new_category_path, class: "btn btn-success" %>

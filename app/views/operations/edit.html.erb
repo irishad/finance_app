@@ -1,10 +1,16 @@
-<h1>Editing operation</h1>
+<div class="container pt-5">
+  <h1>Editing operation</h1>
 
-<%= render "form", operation: @operation %>
+  <%= render "form", operation: @operation %>
 
-<br>
+  <br>
 
-<div>
+<%
+=begin%>
+ <div>
   <%= link_to "Show this operation", @operation, class: "btn btn-success" %> |
   <%= link_to "Back to operations", operations_path, class: "btn btn-success" %>
+</div> 
+<%
+=end%>
 </div>

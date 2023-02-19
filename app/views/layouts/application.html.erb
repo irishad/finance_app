@@ -15,27 +15,27 @@
   <div class="container-fluid p-5 my-5 text-white">
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand text-my-green" href="#">EasyFin</a>
+        <%= link_to "EasyFin", root_path, class: "navbar-brand text-my-green" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Категорії</a>
+              <%= link_to "Категорії", categories_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Гаманці</a>
+              <%= link_to "Гаманці", wallets_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Операції</a>
+              <%= link_to "Операції", operations_path, class: "nav-link" %>
             </li>  
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Звіти</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Звіт по категоріям</a></li>
-                <li><a class="dropdown-item" href="#">Звіт по датах</a></li>
-                <li><a class="dropdown-item" href="#">Звіт по гаманцях</a></li>
+                <li><%= link_to "Звіт по категоріям", reports_report_by_category_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Звіт по датам", reports_report_by_dates_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Звіт по гаманцям", reports_report_by_wallets_path, class: "dropdown-item" %></li>
               </ul>
             </li>
           </ul>
@@ -47,7 +47,7 @@
     </main>
     <footer class="footer fixed-bottom mt-5 p-4 text-white text-center">
       <div class="container">
-        <span>Place sticky footer content here.</span>
+        <span>made by @Iryna Dyvynska</span>
       </div>
     </footer>
   </div>
