@@ -1,7 +1,14 @@
 <div class="container pt-5">
   <p style="color: green"><%= notice %></p>
 
-  <h1>Операції</h1>
+  <div class="form-group row mb-3 mt-3">
+    <div class="col-sm-2">
+      <h1>Операції</h1>
+    </div>
+    <div class="col-sm-10 align-self-center">
+    <%= link_to "Нова операція", new_operation_path, class: "btn btn-success float-end" %>
+    </div>
+  </div>
 
   <table id="operations" class="table table-dark table-striped table-bordered">
     <tr>
@@ -18,7 +25,7 @@
     <% @operations.each do |operation| %>
     <tr>
       <td><%= n %></td>
-      <td><%= operation.otype %></td>
+      <td><%= Operation.get_otype(operation.otype.to_sym) %></td>
       <td><%= operation.wallet.name %></td>
       <td><%= operation.category.name %></td>
       <td><%= operation.amount %></td>
@@ -46,7 +53,6 @@
   <% end %>
   </tr>
   </table>
-
-<%= link_to "New operation", new_operation_path, class: "btn btn-success" %>
+  <%= paginate @operations %>
 
 </div>

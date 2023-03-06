@@ -1,7 +1,14 @@
 <div class="container pt-5">
   <p style="color: green"><%= notice %></p>
 
-  <h1>Гаманці</h1>
+  <div class="form-group row mb-3 mt-3">
+    <div class="col-sm-2">
+      <h1>Гаманці</h1>
+    </div>
+    <div class="col-sm-10 align-self-center">
+    <%= link_to "Новий гаманець", new_wallet_path, class: "btn btn-success float-end" %>
+    </div>
+  </div>
 
   <table id="wallet" class="table table-dark table-striped table-bordered">
     <tr>
@@ -29,5 +36,5 @@
     <% end %>
   </table>
 
-  <%= link_to "Новий гаманець", new_wallet_path, class: "btn btn-success" %>
+  <%= paginate @wallets %>
 </div>

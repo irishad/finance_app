@@ -1,7 +1,7 @@
 <%= form_with(model: wallet) do |form| %>
   <% if wallet.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(wallet.errors.count, "error") %> prohibited this wallet from being saved:</h2>
+      <h2><%= pluralize(wallet.errors.count, "error") %> збереження гаманця відхилено:</h2>
 
       <ul>
         <% wallet.errors.each do |error| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="form-group row mb-3 mt-3">
-    <%= form.label :name, class: "col-sm-2 col-form-label" %>
+    <%= form.label :name, "Назва", class: "col-sm-2 col-form-label" %>
     <div class="col-sm-6">
     <%= form.text_field :name, class: "form-control" %>
     </div>
@@ -22,8 +22,17 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-6">
-      <%= form.submit class: "btn btn-success btn-md center-block" %>
-      <%= submit_tag("Очистити", {name: "reset", id: "reset", type: "reset", class: "btn btn-success btn-md center-block"}) %>
+      <%= form.submit "Підтвердити", class: "btn btn-success btn-md center-block" %>
+      <%= form.button("Очистити", {name: "clear", id: "clear", type: "button", class: "btn btn-success btn-md center-block"}) %>
     </div>
   </div>
+  <script>
+    const inputs = document.querySelectorAll('#wallet_name');
+    const button = document.getElementById('clear');
+    button.onclick = function() {
+      inputs.forEach(element => {
+        element.value = '';
+      });
+    }
+  </script>
 <% end %>

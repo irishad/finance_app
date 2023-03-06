@@ -1,2 +1,71 @@
-<h1>Reports#result_by_category</h1>
-<%= render @operations %>
+<div class="container pt-2">
+  <div class="mb-5">
+    <h1 class="text-center">Звіт по категоріях (<%= @type %>)</h1>
+    <h2 class="text-center">за період: <%= params[:start_date].to_s %> - <%= params[:end_date] %> </h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 d-flex align-items-center">
+      <table id="operations" class="table table-dark table-striped table-bordered">
+        <tr>
+          <th style="width: 5%">#</th>
+          <th style="width: 10%">Категорія</th>
+          <th style="width: 10%">Сума</th>
+        </tr>
+        <% n = 1 %>
+        <% (0...@categories_col.length()).each do |cat| %>
+        <tr>
+          <td><%= n %></td>
+          <td><%= @categories_col[cat] %></td>
+          <td><%= @sums[cat] %></td>
+        <% n+=1 %>
+        <% end %>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-my-green">Всього:</td>
+          <td class="text-my-green"><%= @sums.sum %></td>
+        </tr>  
+      </table>
+    </div>
+    <div class="col-sm-8">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+</div>
+
+ <script>
+  const ctx = document.getElementById('myChart');
+  const data = {
+  labels: <%= raw @categories_col %>,
+  datasets: [{
+    label: 'My First Dataset',
+    data: <%= @sums %>,
+    backgroundColor: [
+      "#25CCF7","#FD7272","#54a0ff","#00d2d3",
+    "#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e",
+    "#16a085","#27ae60","#2980b9","#8e44ad","#2c3e50",
+    "#f1c40f","#e67e22","#e74c3c","#ecf0f1","#95a5a6",
+    "#f39c12","#d35400","#c0392b","#bdc3c7","#7f8c8d",
+    "#55efc4","#81ecec","#74b9ff","#a29bfe","#dfe6e9",
+    "#00b894","#00cec9","#0984e3","#6c5ce7","#ffeaa7",
+    "#fab1a0","#ff7675","#fd79a8","#fdcb6e","#e17055",
+    "#d63031","#feca57","#5f27cd","#54a0ff","#01a3a4"
+    ],
+    hoverOffset: 4
+  }]
+};
+
+const config = {
+  type: 'pie',
+  data: data,
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'right',
+      }
+    }
+  }
+};
+
+const myChart = new Chart(ctx, config);
+</script> 

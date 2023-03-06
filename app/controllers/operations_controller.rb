@@ -3,7 +3,8 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.all
+    @operations = Operation.all.order(:odate, :created_at).page(params[:page])
+    @type = Operation.get_otype(:otype).to_s
   end
 
   # GET /operations/1 or /operations/1.json
@@ -13,10 +14,16 @@ class OperationsController < ApplicationController
   # GET /operations/new
   def new
     @operation = Operation.new
+    @wallets = Wallet.all.map { |wal| [wal.name, wal.id] }
+    @categories = Category.all.map { |c| [c.name, c.id] }
+    @otype_options = Operation.get_otype_options
   end
 
   # GET /operations/1/edit
   def edit
+    @wallets = Wallet.all.map { |wal| [wal.name, wal.id] }
+    @categories = Category.all.map { |c| [c.name, c.id] }
+    @otype_options = Operation.get_otype_options
   end
 
   # POST /operations or /operations.json
@@ -25,7 +32,7 @@ class OperationsController < ApplicationController
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
+        format.html { redirect_to operations_url, notice: "Операція успішно створена." }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +45,7 @@ class OperationsController < ApplicationController
   def update
     respond_to do |format|
       if @operation.update(operation_params)
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully updated." }
+        format.html { redirect_to operations_url, notice: "Операція успішно оновлена." }
         format.json { render :show, status: :ok, location: @operation }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +59,7 @@ class OperationsController < ApplicationController
     @operation.destroy
 
     respond_to do |format|
-      format.html { redirect_to operations_url, notice: "Operation was successfully destroyed." }
+      format.html { redirect_to operations_url, notice: "Операція успішно видалена." }
       format.json { head :no_content }
     end
   end

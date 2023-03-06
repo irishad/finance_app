@@ -1,17 +1,81 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  amount: 9.99
-  odate: 2023-02-03 21:00:17
-  description: MyString
-  otype: MyString
+operation1:
+  amount: 100.0
+  description: Grocery shopping
+  odate: 2022-01-01
+  otype: expense
+  wallet: wallet1
   category: one
-  wallet: one
 
-two:
-  amount: 9.99
-  odate: 2023-02-03 21:00:17
-  description: MyString
-  otype: MyString
+operation2:
+  amount: 50.0
+  description: Gasoline
+  odate: 2022-01-02
+  otype: expense
+  wallet: wallet2
   category: two
-  wallet: two
+
+operation3:
+  amount: 80.0
+  description: Electricity bill
+  odate: 2022-01-03
+  otype: expense
+  wallet: wallet3
+  category: three
+
+operation4:
+  amount: 20.0
+  description: Movie ticket
+  odate: 2022-01-04
+  otype: expense
+  wallet: wallet1
+  category: four
+
+operation5:
+  amount: 60.0
+  description: Clothing
+  odate: 2022-01-05
+  otype: expense
+  wallet: wallet2
+  category: five
+
+operation6:
+  amount: 200.0
+  description: Doctor's appointment
+  odate: 2022-01-06
+  otype: expense
+  wallet: wallet3
+  category: six
+
+operation7:
+  amount: 500.0
+  description: Rent payment
+  odate: 2022-01-07
+  otype: expense
+  wallet: wallet4
+  category: seven
+
+operation8:
+  amount: 1000.0
+  description: Tuition fee
+  odate: 2022-01-08
+  otype: expense
+  wallet: wallet5
+  category: eight
+
+operation9:
+  amount: 400.0
+  description: Flight ticket
+  odate: 2022-01-09
+  otype: expense
+  wallet: wallet1
+  category: nine
+
+operation10:
+  amount: 25.0
+  description: Magazine subscription
+  odate: 2022-01-10
+  otype: expense
+  wallet: wallet2
+  category: ten

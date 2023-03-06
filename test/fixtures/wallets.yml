@@ -1,7 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+# one:
+#   name: MyString
 
-two:
-  name: MyString
+# two:
+#   name: MyString
+
+wallet1:
+  name: Cash
+
+wallet2:
+  name: Credit Card
+
+wallet3:
+  name: Debit Card
+
+wallet4:
+  name: Savings Account
+
+wallet5:
+  name: Checking Account

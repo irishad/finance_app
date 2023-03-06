@@ -14,39 +14,44 @@
  *= require_self
  */
 body {
-    background-color: #060809;
-    font-family: Euclid Circular A;
+  background-color: #060809;
+  font-family: Euclid Circular A;
 }
 
 .nav-link {
-    color: white;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
+  color: white;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .text-my-green {
-    color: #0BCE5A !important;
+  color: #0bce5a !important;
 }
 
 .navbar {
-    background-color: black;
-    padding-left: 4rem;
-    letter-spacing: 0.02rem;
+  background-color: black;
+  padding-left: 4rem;
+  letter-spacing: 0.02rem;
 }
 
 h1 {
-    letter-spacing: -0.02rem;
+  letter-spacing: -0.02rem;
 }
 
 footer {
-    background-color: black;
+  background-color: black;
 }
 
 .btn-success {
-    background-color: #0BCE5A;
+  background-color: #0bce5a;
 }
 
 .btn-primary-outline {
-    background-color: transparent;
-    border-color: #ccc;
-  }
+  background-color: transparent;
+  border-color: #ccc;
+}
+
+.active > .page-link {
+  background-color: #0bce5a;
+  border-color: transparent;
+}

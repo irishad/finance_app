@@ -1,9 +1,49 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# one:
+#   name: MyString
+#   description: MyString
+
+# two:
+#   name: MyString
+#   description: MyString
+
 one:
-  name: MyString
-  description: MyString
+  name: Food
+  description: Food
 
 two:
-  name: MyString
-  description: MyString
+  name: Transportation
+  description: Transportation
+
+three:
+  name: Utilities
+  description: Utilities
+
+four:
+  name: Entertainment
+  description: Entertainment
+
+five:
+  name: Shopping
+  description: Shopping
+
+six:
+  name: Health
+  description: Health
+
+seven:
+  name: Rent
+  description: rental
+
+eight:
+  name: Education
+  description: Education
+
+nine:
+  name: Travel
+  description: Travel
+
+ten:
+  name: Other
+  description: Other
