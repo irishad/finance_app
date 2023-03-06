@@ -1,7 +1,6 @@
 databases:
   - name: postgres
-    databaseName: postgres
-    user: postgres
+    ipAllowList: []
 
 services:
   - type: web
