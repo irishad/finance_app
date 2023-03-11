@@ -4,6 +4,7 @@ class ReportsController < ApplicationController
   def report_by_category
     @wallets = Wallet.all.map { |wal| [wal.name, wal.id] }
     @otype_options = Operation.get_otype_options
+    
   end
 
   def report_by_dates
@@ -18,8 +19,14 @@ class ReportsController < ApplicationController
   end
 
   def result_by_category
-    start_date = params[:start_date]
-    end_date = params[:end_date]
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      if start_date > end_date
+        redirect_to reports_report_by_category_path, notice: "Дата початку періоду повинна бути менше або дорівнювати даті кінця періоду."
+        return
+      end
+    end
 
     odata = Operation.get_operations(start_date, end_date, 'category_id').where(otype: params[:otype])
 
@@ -31,8 +38,14 @@ class ReportsController < ApplicationController
   end
 
   def result_by_dates
-    start_date = params[:start_date]
-    end_date = params[:end_date]
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      if start_date > end_date
+        redirect_to reports_report_by_dates_path, notice: "Дата початку періоду повинна бути менше або дорівнювати даті кінця періоду."
+        return
+      end
+    end
 
     odata = Operation.get_operations(start_date, end_date, 'odate').where(otype: params[:otype])
     
@@ -44,8 +57,14 @@ class ReportsController < ApplicationController
   end
 
   def result_by_wallets
-    start_date = params[:start_date]
-    end_date = params[:end_date]
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      if start_date > end_date
+        redirect_to reports_report_by_wallets_path, notice: "Дата початку періоду повинна бути менше або дорівнювати даті кінця періоду."
+        return
+      end
+    end
 
     odata = Operation.get_operations(start_date, end_date, 'wallet_id').where(otype: params[:otype])
 
@@ -55,13 +74,16 @@ class ReportsController < ApplicationController
     @sums = osum_by_wallets.values
     @type = Operation.get_otype(params[:otype]).to_s
   end
+
+  private
+
+  def check_params(odata)
+    return odata.where(category_id: params[:category_id], wallet_id: params[:wallet_id]) if params[:category_id].present? && params[:wallet_id].present?
+    return odata.where(category_id: params[:category_id]) if params[:category_id].present?
+    return odata.where(wallet_id: params[:wallet_id]) if params[:wallet_id].present?
+    odata
+  end
+
 end
 
-private
 
-def check_params(odata)
-  return odata.where(category_id: params[:category_id], wallet_id: params[:wallet_id]) if params[:category_id].present? && params[:wallet_id].present?
-  return odata.where(category_id: params[:category_id]) if params[:category_id].present?
-  return odata.where(wallet_id: params[:wallet_id]) if params[:wallet_id].present?
-  odata
-end
