@@ -44,4 +44,5 @@ class Operation < ApplicationRecord
 
     last_day_previous_month.strftime("%Y-%m-%d")
   end
+  
 end
