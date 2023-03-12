@@ -36,19 +36,11 @@
           <%= link_to edit_operation_path(operation), class: "btn" do %>
           <i class="bi bi-pencil-square text-my-green"></i>
           <% end %>
-          <%= button_to operation, method: :delete, class: "btn btn-link" do %>
+          <%= button_to operation, { :onclick => "return confirm('Ви впевнені?')", class: "btn btn-link", method: :delete } do %>
           <i class="bi bi-x-square text-my-green"></i>
           <% end %>
         </div>
       </td>
-    <%
-=begin%>
- <%= render operation %>
-    <p>
-      <%= link_to "Show this operation", operation, class: "btn btn-success" %>
-    </p> 
-<%
-=end%>
     <% n+=1 %>
   <% end %>
   </tr>
