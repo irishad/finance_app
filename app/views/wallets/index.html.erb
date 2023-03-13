@@ -26,7 +26,7 @@
           <%= link_to edit_wallet_path(wallet), class: "btn" do %>
           <i class="bi bi-pencil-square text-my-green"></i>
           <% end %>
-          <%= button_to wallet, method: :delete, class: "btn btn-link" do %>
+          <%= button_to wallet, { :onclick => "return confirm('Ви впевнені?')", class: "btn btn-link", method: :delete } do %>
           <i class="bi bi-x-square text-my-green"></i>
           <% end %>
         </div>

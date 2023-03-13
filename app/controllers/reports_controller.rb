@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
       start_date = params[:start_date]
       end_date = params[:end_date]
       if start_date > end_date
-        redirect_to reports_report_by_category_path, notice: "Дата початку періоду повинна бути менше або дорівнювати даті кінця періоду."
+        redirect_to reports_report_by_category_path, notice: "Дата початку періоду не може бути більше дати кінця періоду."
         return
       end
     end
@@ -42,7 +42,7 @@ class ReportsController < ApplicationController
       start_date = params[:start_date]
       end_date = params[:end_date]
       if start_date > end_date
-        redirect_to reports_report_by_dates_path, notice: "Дата початку періоду повинна бути менше або дорівнювати даті кінця періоду."
+        redirect_to reports_report_by_dates_path, notice: "Дата початку періоду не може бути більше дати кінця періоду."
         return
       end
     end
@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
       start_date = params[:start_date]
       end_date = params[:end_date]
       if start_date > end_date
-        redirect_to reports_report_by_wallets_path, notice: "Дата початку періоду повинна бути менше або дорівнювати даті кінця періоду."
+        redirect_to reports_report_by_wallets_path, notice: "Дата початку періоду не може бути більше дати кінця періоду."
         return
       end
     end
