@@ -68,9 +68,9 @@ class ReportsController < ApplicationController
 
     odata = Operation.get_operations(start_date, end_date, 'wallet_id').where(otype: params[:otype])
 
-    osum_by_wallets = check_params(odata).joins(:wallet).order('LOWER(wallets.name) ASC').group(:wallet_id).sum(:amount)
+    osum_by_wallets = check_params(odata).joins(:wallet).group('wallets.name').order('LOWER(wallets.name) ASC').sum(:amount)
 
-    @walles_col = osum_by_wallets.keys.map { |wal| Wallet.find(wal).name}
+    @walles_col = osum_by_wallets.keys
     @sums = osum_by_wallets.values
     @type = Operation.get_otype(params[:otype]).to_s
   end
