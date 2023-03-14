@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   def report_by_category
     @wallets = Wallet.all.map { |wal| [wal.name, wal.id] }
     @otype_options = Operation.get_otype_options
-    
+
   end
 
   def report_by_dates
@@ -30,9 +30,9 @@ class ReportsController < ApplicationController
 
     odata = Operation.get_operations(start_date, end_date, 'category_id').where(otype: params[:otype])
 
-    osum_by_categories = check_params(odata).joins(:category).order('LOWER(categories.name) ASC').group(:category_id).sum(:amount)
+    osum_by_categories = check_params(odata).joins(:category).group('categories.name').order('LOWER(categories.name) ASC').sum(:amount)
 
-    @categories_col = osum_by_categories.keys.map { |cat| Category.find(cat).name}
+    @categories_col = osum_by_categories.keys
     @sums = osum_by_categories.values
     @type = Operation.get_otype(params[:otype]).to_s
   end
@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
     end
 
     odata = Operation.get_operations(start_date, end_date, 'odate').where(otype: params[:otype])
-    
+
     osum_by_dates = check_params(odata).order(:odate).group(:odate).sum(:amount)
 
     @dates = osum_by_dates.keys.map(&:to_s)
